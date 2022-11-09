@@ -40,8 +40,10 @@
 		b.title,
 		b.writer,
 		b.inserted,
-		COUNT(r.id) countReply
+        COUNT(DISTINCT r.id) countReply,
+        COUNT(DISTINCT f.id) countFile
 	FROM Board b LEFT JOIN Reply r ON b.id = r.boardId
+                 LEFT JOIN File f ON b.id = f.boardId
 	WHERE
 		
 		<trim prefixOverrides="OR">
@@ -102,6 +104,16 @@
 	<delete id="delete">
 	DELETE FROM Board
 	WHERE id = #{id}
+	</delete>
+	
+	<delete id="deleteFileByBoardId">
+	DELETE FROM File
+	WHERE boardID = #{id}
+	</delete>
+	
+	<delete id="deleteByBoardIdAndFileName">
+	DELETE FROM File
+	WHERE boardID = #{id} AND name = #{originalFilename}
 	</delete>
 
 </mapper>
