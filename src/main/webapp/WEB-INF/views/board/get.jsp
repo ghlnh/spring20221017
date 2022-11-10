@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<%@ page import = "java.net.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@
 				<div>
 					<c:forEach items="${board.fileName }" var="name">
 						<div>
-							<img class="img-fluid img-thumbnail" src="/image/${board.id }/${name}" alt="">
+							<img class="img-fluid img-thumbnail" src="${imgUrl }/${board.id }/${URLEncoder.encode(name, 'utf-8')}" alt="">
 						</div>
 					</c:forEach>		
 				</div>

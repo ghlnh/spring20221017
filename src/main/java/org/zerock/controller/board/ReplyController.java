@@ -78,11 +78,10 @@ public class ReplyController {
 		} else {
 			map.put("message", "새 댓글이 등록되지 않았습니다.");
 		}
-		
+
 		return map;
 	}
 }
-
 
 
 
