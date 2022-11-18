@@ -177,7 +177,8 @@ public class BoardSerivce {
 
 	private void deleteFile(int id, String fileName) {
 		String key = "prj1/board/" + id +"/" + fileName;
-		
+		System.out.println(key);
+		System.out.println(bucketName);
 		DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
 				.bucket(bucketName)
 				.key(key)

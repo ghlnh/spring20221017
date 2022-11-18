@@ -44,6 +44,11 @@ public class MemberService {
 		return mapper.deleteById(id);
 	}
 
+	public MemberDto getByEmail(String email) {
+		// TODO Auto-generated method stub
+		return mapper.selectByEmail(email);
+	}
+
 }
 
 
